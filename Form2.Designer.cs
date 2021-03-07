@@ -31,25 +31,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelNitAlquiler = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.textNit = new System.Windows.Forms.TextBox();
+            this.textPlaca = new System.Windows.Forms.TextBox();
+            this.dataGridViewDatosVehiculo = new System.Windows.Forms.DataGridView();
+            this.dataGridViewDatosalquiler = new System.Windows.Forms.DataGridView();
             this.buttonIngresar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textKilometrosRecorridos = new System.Windows.Forms.TextBox();
+            this.dataGridViewCalculo = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.sfechaAlquiler = new System.Windows.Forms.MonthCalendar();
+            this.sfechaDevolucion = new System.Windows.Forms.MonthCalendar();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatosVehiculo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatosalquiler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalculo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 38);
+            this.label1.Location = new System.Drawing.Point(55, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 0;
@@ -58,7 +61,7 @@
             // labelNitAlquiler
             // 
             this.labelNitAlquiler.AutoSize = true;
-            this.labelNitAlquiler.Location = new System.Drawing.Point(31, 81);
+            this.labelNitAlquiler.Location = new System.Drawing.Point(12, 35);
             this.labelNitAlquiler.Name = "labelNitAlquiler";
             this.labelNitAlquiler.Size = new System.Drawing.Size(20, 13);
             this.labelNitAlquiler.TabIndex = 1;
@@ -67,24 +70,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 113);
+            this.label2.Location = new System.Drawing.Point(12, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Placa";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(56, 168);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(182, 104);
-            this.dataGridView1.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 142);
+            this.label3.Location = new System.Drawing.Point(12, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 4;
@@ -93,82 +88,113 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 285);
+            this.label4.Location = new System.Drawing.Point(12, 295);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Fecha devolucion";
             // 
-            // dataGridView2
+            // textNit
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(56, 301);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(182, 111);
-            this.dataGridView2.TabIndex = 6;
+            this.textNit.Location = new System.Drawing.Point(50, 35);
+            this.textNit.Name = "textNit";
+            this.textNit.Size = new System.Drawing.Size(127, 20);
+            this.textNit.TabIndex = 7;
             // 
-            // textBox1
+            // textPlaca
             // 
-            this.textBox1.Location = new System.Drawing.Point(69, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 20);
-            this.textBox1.TabIndex = 7;
+            this.textPlaca.Location = new System.Drawing.Point(52, 69);
+            this.textPlaca.Name = "textPlaca";
+            this.textPlaca.Size = new System.Drawing.Size(125, 20);
+            this.textPlaca.TabIndex = 8;
             // 
-            // textBox2
+            // dataGridViewDatosVehiculo
             // 
-            this.textBox2.Location = new System.Drawing.Point(71, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 20);
-            this.textBox2.TabIndex = 8;
+            this.dataGridViewDatosVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDatosVehiculo.Location = new System.Drawing.Point(412, 35);
+            this.dataGridViewDatosVehiculo.Name = "dataGridViewDatosVehiculo";
+            this.dataGridViewDatosVehiculo.Size = new System.Drawing.Size(341, 122);
+            this.dataGridViewDatosVehiculo.TabIndex = 9;
             // 
-            // dataGridView3
+            // dataGridViewDatosalquiler
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(412, 51);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(341, 160);
-            this.dataGridView3.TabIndex = 9;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(412, 234);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(341, 158);
-            this.dataGridView4.TabIndex = 10;
+            this.dataGridViewDatosalquiler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDatosalquiler.Location = new System.Drawing.Point(412, 194);
+            this.dataGridViewDatosalquiler.Name = "dataGridViewDatosalquiler";
+            this.dataGridViewDatosalquiler.Size = new System.Drawing.Size(341, 127);
+            this.dataGridViewDatosalquiler.TabIndex = 10;
             // 
             // buttonIngresar
             // 
-            this.buttonIngresar.Location = new System.Drawing.Point(269, 301);
+            this.buttonIngresar.Location = new System.Drawing.Point(290, 226);
             this.buttonIngresar.Name = "buttonIngresar";
             this.buttonIngresar.Size = new System.Drawing.Size(102, 60);
             this.buttonIngresar.TabIndex = 11;
             this.buttonIngresar.Text = "Ingresar Datos";
             this.buttonIngresar.UseVisualStyleBackColor = true;
+            this.buttonIngresar.Click += new System.EventHandler(this.buttonIngresar_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(208, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Kilometros Recorridos";
+            // 
+            // textKilometrosRecorridos
+            // 
+            this.textKilometrosRecorridos.Location = new System.Drawing.Point(211, 65);
+            this.textKilometrosRecorridos.Name = "textKilometrosRecorridos";
+            this.textKilometrosRecorridos.Size = new System.Drawing.Size(100, 20);
+            this.textKilometrosRecorridos.TabIndex = 14;
+            // 
+            // dataGridViewCalculo
+            // 
+            this.dataGridViewCalculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCalculo.Location = new System.Drawing.Point(412, 355);
+            this.dataGridViewCalculo.Name = "dataGridViewCalculo";
+            this.dataGridViewCalculo.Size = new System.Drawing.Size(341, 120);
+            this.dataGridViewCalculo.TabIndex = 15;
+            // 
+            // sfechaAlquiler
+            // 
+            this.sfechaAlquiler.Location = new System.Drawing.Point(15, 124);
+            this.sfechaAlquiler.Name = "sfechaAlquiler";
+            this.sfechaAlquiler.TabIndex = 16;
+            // 
+            // sfechaDevolucion
+            // 
+            this.sfechaDevolucion.Location = new System.Drawing.Point(15, 315);
+            this.sfechaDevolucion.Name = "sfechaDevolucion";
+            this.sfechaDevolucion.TabIndex = 17;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 487);
+            this.Controls.Add(this.sfechaDevolucion);
+            this.Controls.Add(this.sfechaAlquiler);
+            this.Controls.Add(this.dataGridViewCalculo);
+            this.Controls.Add(this.textKilometrosRecorridos);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonIngresar);
-            this.Controls.Add(this.dataGridView4);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridViewDatosalquiler);
+            this.Controls.Add(this.dataGridViewDatosVehiculo);
+            this.Controls.Add(this.textPlaca);
+            this.Controls.Add(this.textNit);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelNitAlquiler);
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatosVehiculo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatosalquiler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalculo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,14 +205,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelNitAlquiler;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.TextBox textNit;
+        private System.Windows.Forms.TextBox textPlaca;
+        private System.Windows.Forms.DataGridView dataGridViewDatosVehiculo;
+        private System.Windows.Forms.DataGridView dataGridViewDatosalquiler;
         private System.Windows.Forms.Button buttonIngresar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textKilometrosRecorridos;
+        private System.Windows.Forms.DataGridView dataGridViewCalculo;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.MonthCalendar sfechaAlquiler;
+        private System.Windows.Forms.MonthCalendar sfechaDevolucion;
     }
 }

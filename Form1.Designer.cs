@@ -41,11 +41,13 @@ namespace AlquilerAutos
             this.textNitCliente = new System.Windows.Forms.TextBox();
             this.textNombre = new System.Windows.Forms.TextBox();
             this.textDireccion = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textPlaca = new System.Windows.Forms.TextBox();
+            this.textMarca = new System.Windows.Forms.TextBox();
+            this.textModelo = new System.Windows.Forms.TextBox();
+            this.textColor = new System.Windows.Forms.TextBox();
             this.buttonValidar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textPrecioKilometro = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -150,33 +152,33 @@ namespace AlquilerAutos
             this.textDireccion.Size = new System.Drawing.Size(235, 20);
             this.textDireccion.TabIndex = 12;
             // 
-            // textBox1
+            // textPlaca
             // 
-            this.textBox1.Location = new System.Drawing.Point(70, 204);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(139, 20);
-            this.textBox1.TabIndex = 13;
+            this.textPlaca.Location = new System.Drawing.Point(70, 204);
+            this.textPlaca.Name = "textPlaca";
+            this.textPlaca.Size = new System.Drawing.Size(139, 20);
+            this.textPlaca.TabIndex = 13;
             // 
-            // textBox2
+            // textMarca
             // 
-            this.textBox2.Location = new System.Drawing.Point(70, 245);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(139, 20);
-            this.textBox2.TabIndex = 14;
+            this.textMarca.Location = new System.Drawing.Point(70, 245);
+            this.textMarca.Name = "textMarca";
+            this.textMarca.Size = new System.Drawing.Size(139, 20);
+            this.textMarca.TabIndex = 14;
             // 
-            // textBox3
+            // textModelo
             // 
-            this.textBox3.Location = new System.Drawing.Point(70, 288);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(139, 20);
-            this.textBox3.TabIndex = 15;
+            this.textModelo.Location = new System.Drawing.Point(70, 288);
+            this.textModelo.Name = "textModelo";
+            this.textModelo.Size = new System.Drawing.Size(139, 20);
+            this.textModelo.TabIndex = 15;
             // 
-            // textBox4
+            // textColor
             // 
-            this.textBox4.Location = new System.Drawing.Point(70, 326);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(139, 20);
-            this.textBox4.TabIndex = 16;
+            this.textColor.Location = new System.Drawing.Point(70, 326);
+            this.textColor.Name = "textColor";
+            this.textColor.Size = new System.Drawing.Size(139, 20);
+            this.textColor.TabIndex = 16;
             // 
             // buttonValidar
             // 
@@ -188,16 +190,34 @@ namespace AlquilerAutos
             this.buttonValidar.UseVisualStyleBackColor = true;
             this.buttonValidar.Click += new System.EventHandler(this.buttonValidar_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 375);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Precio Kilometro";
+            // 
+            // textPrecioKilometro
+            // 
+            this.textPrecioKilometro.Location = new System.Drawing.Point(101, 372);
+            this.textPrecioKilometro.Name = "textPrecioKilometro";
+            this.textPrecioKilometro.Size = new System.Drawing.Size(93, 20);
+            this.textPrecioKilometro.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 380);
+            this.ClientSize = new System.Drawing.Size(440, 435);
+            this.Controls.Add(this.textPrecioKilometro);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.buttonValidar);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textColor);
+            this.Controls.Add(this.textModelo);
+            this.Controls.Add(this.textMarca);
+            this.Controls.Add(this.textPlaca);
             this.Controls.Add(this.textDireccion);
             this.Controls.Add(this.textNombre);
             this.Controls.Add(this.textNitCliente);
@@ -231,11 +251,13 @@ namespace AlquilerAutos
         private System.Windows.Forms.TextBox textNitCliente;
         private System.Windows.Forms.TextBox textNombre;
         private System.Windows.Forms.TextBox textDireccion;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textPlaca;
+        private System.Windows.Forms.TextBox textMarca;
+        private System.Windows.Forms.TextBox textModelo;
+        private System.Windows.Forms.TextBox textColor;
         private System.Windows.Forms.Button buttonValidar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textPrecioKilometro;
     }
 }
 
