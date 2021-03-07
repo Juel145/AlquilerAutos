@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlquilerAutos
 {
-    class Clientes
+    class Cliente
     {
         int nit;
         string nombre;

@@ -10,14 +10,15 @@ namespace AlquilerAutos
     {
         string placa;
         string marca;
-        string modelo;
+        int modelo;
         string color;
         float precioKilometro;
 
         public string Placa { get => placa; set => placa = value; }
         public string Marca { get => marca; set => marca = value; }
-        public string Modelo { get => modelo; set => modelo = value; }
+        public int Modelo { get => modelo; set => modelo = value; }
         public string Color { get => color; set => color = value; }
         public float PrecioKilometro { get => precioKilometro; set => precioKilometro = value; }
+       
     }
 }
