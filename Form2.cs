@@ -141,7 +141,16 @@ namespace AlquilerAutos
             dataGridViewCalculo.DataSource = calculos;
             dataGridViewCalculo.Refresh();
 
-           
+            float MayorKilometro = datosAlquileres[0].KilometrosRecorridos;
+           for(int x=0; x<datosAlquileres.Count;x++)
+            {
+                if(datosAlquileres[x].KilometrosRecorridos>MayorKilometro)
+                {
+                    MayorKilometro = datosAlquileres[x].KilometrosRecorridos;
+                }
+            }
+            
+            MayorRecorrido.Text = MayorKilometro.ToString();
 
         }
         private void buttonIngresar_Click(object sender, EventArgs e)

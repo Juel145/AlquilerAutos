@@ -177,14 +177,14 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(422, 444);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.Size = new System.Drawing.Size(144, 13);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Mayor Recorrido";
+            this.label5.Text = "Mayor Kilometros Recorridos:";
             // 
             // MayorRecorrido
             // 
             this.MayorRecorrido.AutoSize = true;
-            this.MayorRecorrido.Location = new System.Drawing.Point(543, 450);
+            this.MayorRecorrido.Location = new System.Drawing.Point(578, 455);
             this.MayorRecorrido.Name = "MayorRecorrido";
             this.MayorRecorrido.Size = new System.Drawing.Size(35, 13);
             this.MayorRecorrido.TabIndex = 19;
