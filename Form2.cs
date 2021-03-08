@@ -54,6 +54,7 @@ namespace AlquilerAutos
                 datosVehiculoTemp.Placa = reader.ReadLine();
                 datosVehiculoTemp.Marca = reader.ReadLine();
                 datosVehiculoTemp.Modelo = Convert.ToInt32(reader.ReadLine());
+                datosVehiculoTemp.Color = reader.ReadLine();
                 datosVehiculoTemp.PrecioKilometro = float.Parse(reader.ReadLine());
 
                 datosVehiculos.Add(datosVehiculoTemp);
@@ -84,15 +85,15 @@ namespace AlquilerAutos
         }
         private void GuardarDatosAlquiler()
         {
-            FileStream stream = new FileStream("datosvehiculo.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            FileStream stream = new FileStream("datosalquiler.txt", FileMode.Append, FileAccess.Write);
             StreamWriter writer = new StreamWriter(stream);
-            foreach (var p in datosVehiculos)
+            foreach (var p in datosAlquileres)
             {
+                writer.WriteLine(p.Nit);
                 writer.WriteLine(p.Placa);
-                writer.WriteLine(p.Marca);
-                writer.WriteLine(p.Modelo);
-                writer.WriteLine(p.Color);
-                writer.WriteLine(p.PrecioKilometro);
+                writer.WriteLine(p.FechaAlquiler);
+                writer.WriteLine(p.FechaDevolucion);
+                writer.WriteLine(p.KilometrosRecorridos);
             }
             writer.Close();
 
@@ -100,18 +101,18 @@ namespace AlquilerAutos
         void Calcular()
         {
             LeerDatosAlquiler();
+            calculos.Clear();
             for (int x = 0; x < datosVehiculos.Count; x++)
             {
                 for (int y = 0; y < datosAlquileres.Count; y++)
                 {
-                    for (int z = 0; z < clientes.Count; z++)
-                    {
+                    
                         if (datosVehiculos[x].Placa == datosAlquileres[y].Placa)
                         {
-                            if (datosAlquileres[y].Nit == clientes[z].Nit)
-                            {
+                            
                                 Calculo calculoTemp = new Calculo();
-                                calculoTemp.NombreCliente = clientes[z].Nombre;
+                                Cliente cliente = clientes.Find(n => n.Nit == datosAlquileres[y].Nit);
+                                calculoTemp.NombreCliente = cliente.Nombre;
                                 calculoTemp.Placa = datosVehiculos[x].Placa;
                                 calculoTemp.Marca = datosVehiculos[x].Marca;
                                 calculoTemp.Modelo = datosVehiculos[x].Modelo;
@@ -119,12 +120,9 @@ namespace AlquilerAutos
                                 calculoTemp.Fechadevolucion = datosAlquileres[y].FechaDevolucion;
                                 calculoTemp.Total = datosVehiculos[x].PrecioKilometro * datosAlquileres[y].KilometrosRecorridos;
                                 calculos.Add(calculoTemp);
-                            }
-
-
-
+                            
                         }
-                    }
+                    
                 }
             }
             dataGridViewDatosVehiculo.DataSource = null;
@@ -148,16 +146,25 @@ namespace AlquilerAutos
             string PlacaVehiculo = textPlaca.Text;
             DateTime FechaAlquiler = sfechaAlquiler.SelectionStart;
             DateTime FechaDevolucion = sfechaDevolucion.SelectionStart;
+            float KilometrosRecorridos = float.Parse(textKilometrosRecorridos.Text);
 
             DatosAlquiler datosAlquilerTemp = new DatosAlquiler();
             datosAlquilerTemp.Nit = NitCliente;
             datosAlquilerTemp.Placa = PlacaVehiculo;
             datosAlquilerTemp.FechaAlquiler = FechaAlquiler;
             datosAlquilerTemp.FechaDevolucion = FechaDevolucion;
+            datosAlquilerTemp.KilometrosRecorridos = KilometrosRecorridos;
             datosAlquileres.Add(datosAlquilerTemp);
             GuardarDatosAlquiler();
             Calcular();
                 
          }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            datosAlquileres.Clear();
+            clientes.Clear();
+
+        }
     }
 }

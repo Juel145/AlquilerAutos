@@ -98,6 +98,7 @@ namespace AlquilerAutos
                 datosVehiculoTemp.Placa = reader.ReadLine();
                 datosVehiculoTemp.Marca = reader.ReadLine();
                 datosVehiculoTemp.Modelo = Convert.ToInt32(reader.ReadLine());
+                datosVehiculoTemp.Color = reader.ReadLine();
                 datosVehiculoTemp.PrecioKilometro = float.Parse(reader.ReadLine());
 
                 datosVehiculos.Add(datosVehiculoTemp);
