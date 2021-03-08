@@ -44,6 +44,8 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.sfechaAlquiler = new System.Windows.Forms.MonthCalendar();
             this.sfechaDevolucion = new System.Windows.Forms.MonthCalendar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.MayorRecorrido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatosVehiculo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDatosalquiler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalculo)).BeginInit();
@@ -119,7 +121,7 @@
             // dataGridViewDatosalquiler
             // 
             this.dataGridViewDatosalquiler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDatosalquiler.Location = new System.Drawing.Point(412, 194);
+            this.dataGridViewDatosalquiler.Location = new System.Drawing.Point(412, 163);
             this.dataGridViewDatosalquiler.Name = "dataGridViewDatosalquiler";
             this.dataGridViewDatosalquiler.Size = new System.Drawing.Size(341, 127);
             this.dataGridViewDatosalquiler.TabIndex = 10;
@@ -153,7 +155,7 @@
             // dataGridViewCalculo
             // 
             this.dataGridViewCalculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCalculo.Location = new System.Drawing.Point(412, 355);
+            this.dataGridViewCalculo.Location = new System.Drawing.Point(412, 296);
             this.dataGridViewCalculo.Name = "dataGridViewCalculo";
             this.dataGridViewCalculo.Size = new System.Drawing.Size(341, 120);
             this.dataGridViewCalculo.TabIndex = 15;
@@ -170,11 +172,31 @@
             this.sfechaDevolucion.Name = "sfechaDevolucion";
             this.sfechaDevolucion.TabIndex = 17;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(422, 444);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Mayor Recorrido";
+            // 
+            // MayorRecorrido
+            // 
+            this.MayorRecorrido.AutoSize = true;
+            this.MayorRecorrido.Location = new System.Drawing.Point(543, 450);
+            this.MayorRecorrido.Name = "MayorRecorrido";
+            this.MayorRecorrido.Size = new System.Drawing.Size(35, 13);
+            this.MayorRecorrido.TabIndex = 19;
+            this.MayorRecorrido.Text = "label7";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 487);
+            this.Controls.Add(this.MayorRecorrido);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.sfechaDevolucion);
             this.Controls.Add(this.sfechaAlquiler);
             this.Controls.Add(this.dataGridViewCalculo);
@@ -219,5 +241,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.MonthCalendar sfechaAlquiler;
         private System.Windows.Forms.MonthCalendar sfechaDevolucion;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label MayorRecorrido;
     }
 }

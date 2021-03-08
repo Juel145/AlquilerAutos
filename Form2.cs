@@ -100,8 +100,8 @@ namespace AlquilerAutos
         }
         void Calcular()
         {
+            datosAlquileres.Clear();
             LeerDatosAlquiler();
-            calculos.Clear();
             for (int x = 0; x < datosVehiculos.Count; x++)
             {
                 for (int y = 0; y < datosAlquileres.Count; y++)
@@ -125,6 +125,10 @@ namespace AlquilerAutos
                     
                 }
             }
+            
+        }
+        void Mostrar()
+        {
             dataGridViewDatosVehiculo.DataSource = null;
             dataGridViewDatosVehiculo.DataSource = datosVehiculos;
             dataGridViewDatosVehiculo.Refresh();
@@ -136,6 +140,8 @@ namespace AlquilerAutos
             dataGridViewCalculo.DataSource = null;
             dataGridViewCalculo.DataSource = calculos;
             dataGridViewCalculo.Refresh();
+
+           
 
         }
         private void buttonIngresar_Click(object sender, EventArgs e)
@@ -157,7 +163,7 @@ namespace AlquilerAutos
             datosAlquileres.Add(datosAlquilerTemp);
             GuardarDatosAlquiler();
             Calcular();
-                
+            Mostrar();    
          }
 
         private void Form2_Load(object sender, EventArgs e)
