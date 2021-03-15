@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace AlquilerAutos
 {
-    public partial class Form2 : Form
+    public partial class Form3 : Form
     {
         List<Cliente> clientes = new List<Cliente>();
         List<DatosVehiculo> datosVehiculos = new List<DatosVehiculo>();
         List<DatosAlquiler> datosAlquileres = new List<DatosAlquiler>();
         List<Calculo> calculos = new List<Calculo>();
-        public Form2()
+        public Form3()
         {
             InitializeComponent();
         }
@@ -83,84 +83,64 @@ namespace AlquilerAutos
             reader.Close();
 
         }
-        private void GuardarDatosAlquiler()
-        {
-            FileStream stream = new FileStream("datosalquiler.txt", FileMode.Append, FileAccess.Write);
-            StreamWriter writer = new StreamWriter(stream);
-            foreach (var p in datosAlquileres)
-            {
-                writer.WriteLine(p.Nit);
-                writer.WriteLine(p.Placa);
-                writer.WriteLine(p.FechaAlquiler);
-                writer.WriteLine(p.FechaDevolucion);
-                writer.WriteLine(p.KilometrosRecorridos);
-            }
-            writer.Close();
-
-        }
-        private void GuardarCliente()
-        {
-            FileStream stream = new FileStream("clientes.txt", FileMode.OpenOrCreate, FileAccess.Write);
-            StreamWriter writer = new StreamWriter(stream);
-            foreach (var p in clientes)
-            {
-                writer.WriteLine(p.Nit);
-                writer.WriteLine(p.Nombre);
-                writer.WriteLine(p.Direccion);
-            }
-            writer.Close();
-
-        }
         
-      
-        private void buttonIngresar_Click(object sender, EventArgs e)
+        private void Form3_Load(object sender, EventArgs e)
         {
-            datosAlquileres.Clear();
-            clientes.Clear();
-            datosVehiculos.Clear();
-            LeerClientes();
+            LeerDatosAlquiler();
             LeerDatosVehiculo();
-            Cliente clientesTemp = new Cliente();
-            DatosAlquiler datosAlquilerTemp = new DatosAlquiler();
-            datosAlquilerTemp.Placa = comboBoxPlaca.SelectedValue.ToString();
-            clientesTemp.Nombre = textBoxNombre.Text;
-            clientesTemp.Direccion = textBoxDireccion.Text;
-            datosAlquilerTemp.Nit = Convert.ToInt32(textNit.Text);
-            clientesTemp.Nit = Convert.ToInt32(textNit.Text);
-            datosAlquilerTemp.FechaAlquiler = dateTimePickerAlquilar.Value;
-            datosAlquilerTemp.FechaDevolucion = dateTimePickerDevolucion.Value;
-            datosAlquilerTemp.KilometrosRecorridos = float.Parse(textKilometrosRecorridos.Text);
-            datosAlquileres.Add(datosAlquilerTemp);
-            clientes.Add(clientesTemp);
-            GuardarDatosAlquiler();
-            GuardarCliente();
+            LeerClientes();
+            dataGridViewDatosVehiculos.DataSource = null;
+            dataGridViewDatosVehiculos.DataSource = datosVehiculos;
+            dataGridViewDatosVehiculos.Refresh();
             
-           
-         }
+            dataGridViewDatosAlquiler.DataSource = null;
+            dataGridViewDatosAlquiler.DataSource = datosAlquileres;
+            dataGridViewDatosAlquiler.Refresh();
 
-        private void Form2_Load(object sender, EventArgs e)
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            datosAlquileres.Clear();
-            clientes.Clear();
-            datosVehiculos.Clear();
-             LeerDatosVehiculo();
-            comboBoxPlaca.ValueMember = "Placa";
-            comboBoxPlaca.DataSource = null;
-            comboBoxPlaca.DataSource = datosVehiculos;
+            for (int x = 0; x < datosVehiculos.Count; x++)
+            {
+                for (int y = 0; y < datosAlquileres.Count; y++)
+                {
+
+                    if (datosVehiculos[x].Placa == datosAlquileres[y].Placa)
+                    {
+
+                        Calculo calculoTemp = new Calculo();
+                        Cliente cliente = clientes.Find(n => n.Nit == datosAlquileres[y].Nit);
+                        calculoTemp.NombreCliente = cliente.Nombre;
+                        calculoTemp.Placa = datosVehiculos[x].Placa;
+                        calculoTemp.Marca = datosVehiculos[x].Marca;
+                        calculoTemp.Modelo = datosVehiculos[x].Modelo;
+                        calculoTemp.Color = datosVehiculos[x].Color;
+                        calculoTemp.Fechadevolucion = datosAlquileres[y].FechaDevolucion;
+                        calculoTemp.Total = datosVehiculos[x].PrecioKilometro * datosAlquileres[y].KilometrosRecorridos;
+                        calculos.Add(calculoTemp);
+
+                    }
+
+                }
+            }
+
+
+            dataGridViewReporte.DataSource = null;
+            dataGridViewReporte.DataSource = calculos;
+            dataGridViewReporte.Refresh();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            float mayor = datosAlquileres.Max(p => p.KilometrosRecorridos);
+            labelMayorRecorrido.Text = "El mayor recorrido fue de " + mayor.ToString();
         }
 
         private void buttonRegresar_Click(object sender, EventArgs e)
         {
             this.Close();
-          
-        }
-
-        private void buttonDatos_Click(object sender, EventArgs e)
-        {
-            Form3 frm3 = new Form3();
-
-            frm3.Show();
-            
         }
     }
 }
